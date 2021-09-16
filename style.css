@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(255, 230, 0);
+    overflow: hidden;
+    margin: 0 auto;
+   font-family: monospace;
+}
+.title{
+  margin-top: 20%;
+}
+h1{
+    font-size: 4rem;
+    color: indianred;
+    text-align: center;
+    background-color: ivory;
+}
+h2{
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+}
