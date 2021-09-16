@@ -19,7 +19,7 @@ function upperCase(str) {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) return "Continue";
+    if (playerSelection === computerSelection) return "Draw";
     else if (playerSelection === "Rock" && computerSelection === "Scissor") return "You win!";
     else if (playerSelection === "Scissor" && computerSelection === "Rock") return "You lose!";
     else if (playerSelection === "Scissor" && computerSelection === "Paper") return "You win!";
@@ -40,16 +40,35 @@ let playerInput;
 // console.log(result);
 
 function game() {
+    let player = 0;
+    let comp = 0;
+    let score;
+
     for (let i = 0; i < 5; i++) {
         playerInput = prompt(`Rock - Paper - Scissor :`);
         const playerSelection = upperCase(playerInput);
         const computerSelection = computerplay();
         // playRound(playerSelection, computerSelection);
+        console.log(`Round ${i + 1}`);
         console.log(`your choice: ${playerSelection}`);
         console.log(`computer's choice: ${computerSelection}`);
-        console.log(playRound(playerSelection, computerSelection));
+        score = playRound(playerSelection, computerSelection);
+        console.log(score);
+        // console.log(typeof score);
+        if (score === "You win!") {
+            player++;
+        } else if (score === "You lose!") {
+            comp++;
+        }
     }
-
+    console.log(`RESULT: `);
+    if (player > comp) {
+        console.log(`You are the winner! your points: ${player}; computer's points: ${comp} `);
+    } else if (player < comp) {
+        console.log(`you didn't win! your points: ${player}; computer's points: ${comp}`);
+    } else {
+        console.log(`draw!`);
+    }
 }
 
 
