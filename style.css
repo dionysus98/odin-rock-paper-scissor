@@ -3,61 +3,75 @@
     /* border: 1px solid red; */
 
 }
+
 body{
-    background-color: rgb(255, 230, 0);
+    background-image:url(https://images.unsplash.com/photo-1526732928503-5c58853877ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
     overflow: hidden;
-    /* margin: 0 auto; */
-   font-family: monospace;
-   overflow:auto;
+    font-family: monospace;
+    overflow:auto;
 }
+
+main{
+    margin: 0 auto;
+    width: 80%;
+    max-width: 800px;
+}
+
 .title-header{
     font-size: 4rem;
     color: indianred;
     text-align: center;
-    background-color: ivory;
+    /* background-color: ivory; */
     text-shadow: 3px 3px 0.6px yellowgreen;
 }
+
 .title-header:hover{
-    background-color: black;
+    /* background-color: black; */
     color: yellow;
     text-shadow: 3px 3px 0.6px orange;
 }
+
 .odin{
     font-size: 1rem;
     color: #000;
     text-align: center;
     padding: 0 0 2em 0;
 }
+
 .odin:hover{
     color: white;
     text-shadow: 2px 2px 0.5px black;
 }
 
+.reset.btn{
+  background-color:teal;
+  color: #000;
+}
+
 .container{
-    margin: 0 auto;
-    width: 80%;
-    max-width: 800px;
-    /* border: 2px solid white; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     grid-gap: 2em;
-    /* align-items: center; */
-    padding: 1.2em 0;
 }
+
 .player,.computer{
     padding: 2em 4em;
 }
-.player-display,.computer-display{
-   /* width: 30%; */
-   padding: 2em 2em;
 
+.player-display,.computer-display{
+   padding: 2em 2em;
    /* border: 1px solid black; */
 }
+
 .player-selector{
     display: flex;
     justify-content: space-between;
 }
+
 .btn, .selector-comp{
     border: none;
     background-color: black;
@@ -68,14 +82,26 @@ body{
     border-radius: 1em;
     text-align: center;
 }
+
+.selector-comp{
+    cursor: not-allowed;
+}
+
 .btn:hover{
     background-color: cornflowerblue;
     color: black;
     font-style: italic;
 
 }
+
 .btn:active{
-    transform: scale(1.15);
+    transform: scale(1.05);
+}
+
+.local-display{
+    text-align: center;
+    padding: 1em;
+    font-size: 1.25rem;
 }
 
 .score-container{
@@ -92,7 +118,7 @@ body{
 .winner{
     margin: 0 auto;
     text-align: center;
-    padding: 3em 2em;
+    padding: 2em 2em;
     font-size: 1.95rem;
 }
 

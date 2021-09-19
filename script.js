@@ -2,45 +2,79 @@
 
 // console.log(`Hello world`);
 
-// let answer = Math.trunc(Math.random() * 3) + 1;
-// console.log(answer);
-
 const rock = document.getElementById('player-rock');
 const scissor = document.getElementById('player-scissor');
 const paper = document.getElementById('player-paper');
-const score = document.getElementById('player-score');
-const scoreComp = document.getElementById("computer-score");
+let score = document.getElementById('player-scores');
+let scoreComp = document.getElementById("computer-scores");
 const winner = document.getElementById('winner');
 const imgPlayer = document.getElementById('player-img');
 const imgComp = document.getElementById('computer-img');
-const computerRps = document.getElementById("computer-rps");
+let computerRps = document.getElementById("computer-rps");
+let localDisplay = document.getElementById("local-display");
+const reset = document.getElementById("reset");
 
 
-rock.addEventListener("click", function rock() {
-    imgPlayer.src = "https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/rock--left.png";
+
+function displayScores() {
+
+    if (localDisplay.textContent === "You win!") {
+        score.textContent = Number(score.textContent) + 1;
+
+    } else if (localDisplay.textContent === "You lose!") {
+        scoreComp.textContent = Number(scoreComp.textContent) + 1;
+    }
+}
+
+
+function finalScore() {
+
+    if (score.textContent === "5") {
+
+        winner.textContent = "YOU ARE THE CHAMPION, MY FRIEND!";
+
+    } else if (scoreComp.textContent === "5") {
+
+        winner.textContent = "THE COMPUTER HAS WON!";
+    }
+}
+
+
+function game() {
+
+    if (winner.textContent === "YOU ARE THE CHAMPION, MY FRIEND!" || winner.textContent === "THE COMPUTER HAS WON!") {
+        return;
+    }
+    finalScore();
+
+    let selection = lowerCase(this.textContent);
+
+    imgPlayer.src = `https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/${selection}--left.png`;
     imgComp
-    imgComp.src = `https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/${computerplay()}--left.png`;
+
+    let computer = computerplay();
+
+    imgComp.src = `https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/${computer}--left.png`;
 
 
+    let player = this.textContent;
+    computerRps.textContent = `${upperCase(computer)}`;
 
-    // console.log(this.textContent);
-    // if (this.textContent === computerplay()) return;
-    // else if (this.textContent && computerplay() === "Scissor") {
-    //     score.textContent = score + 1;
-    // }
+    playRound(player, computerRps.textContent);
 
-})
+    displayScores();
 
-paper.addEventListener("click", function paper() {
-    imgPlayer.src = "https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/paper--left.png"
-    imgComp.src = `https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/${computerplay()}--left.png`;
-})
+}
 
-scissor.addEventListener("click", function scissor() {
-    imgPlayer.src = "https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/scissors--left.png"
-    imgComp.src = `https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/${computerplay()}--left.png`;
-})
+function again() {
 
+    score.textContent = 0;
+    scoreComp.textContent = 0;
+    winner.textContent = "?";
+    localDisplay.textContent = "LET'S BEGIN c:";
+    computerRps.textContent = ":D";
+
+}
 
 
 function computerplay() {
@@ -50,65 +84,35 @@ function computerplay() {
     else if (answer === 3) return "scissors";
 }
 
+
 function upperCase(str) {
     const lowerCase = str.toLowerCase();
-    // return lowerCase;
     const result = lowerCase[0].toUpperCase() + str.slice(1);
     return result;
 }
 
+
+function lowerCase(str) {
+    return str.toLowerCase();
+}
+
+
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) return "Draw";
-    else if (playerSelection === "Rock" && computerSelection === "Scissor") return "You win!";
-    else if (playerSelection === "Scissor" && computerSelection === "Rock") return "You lose!";
-    else if (playerSelection === "Scissor" && computerSelection === "Paper") return "You win!";
-    else if (playerSelection === "Paper" && computerSelection === "Scissor") return "You lose!";
-    else if (playerSelection === "Paper" && computerSelection === "Rock") return "You win!";
-    else if (playerSelection === "Rock" && computerSelection === "Paper") return "You lose!";
+    if (playerSelection === computerSelection) return localDisplay.textContent = "Draw";
+    else if (playerSelection === "Rock" && computerSelection === "Scissors") return localDisplay.textContent = "You win!";
+    else if (playerSelection === "Scissors" && computerSelection === "Rock") return localDisplay.textContent = "You lose!";
+    else if (playerSelection === "Scissors" && computerSelection === "Paper") return localDisplay.textContent = "You win!";
+    else if (playerSelection === "Paper" && computerSelection === "Scissors") return localDisplay.textContent = "You lose!";
+    else if (playerSelection === "Paper" && computerSelection === "Rock") return localDisplay.textContent = "You win!";
+    else if (playerSelection === "Rock" && computerSelection === "Paper") return localDisplay.textContent = "You lose!";
 }
 
 
 
-let playerInput;
-// const playerSelection = upperCase(playerInput);
-// const computerSelection = computerplay();
+rock.addEventListener("click", game);
 
-// console.log(`your choice: ${playerSelection}`);
-// console.log(`computer's choice: ${computerSelection}`);
-// const result = playRound(playerSelection, computerSelection);
-// console.log(result);
+paper.addEventListener("click", game);
 
-function game() {
-    let player = 0;
-    let comp = 0;
-    let score;
+scissor.addEventListener("click", game);
 
-    for (let i = 0; i < 5; i++) {
-        playerInput = (prompt(`Rock - Paper - Scissor :`));
-        const playerSelection = upperCase(playerInput);
-        const computerSelection = upperCase(computerplay());
-        // playRound(playerSelection, computerSelection);
-        console.log(`Round ${i + 1}`);
-        console.log(`your choice: ${playerSelection}`);
-        console.log(`computer's choice: ${computerSelection}`);
-        score = playRound(playerSelection, computerSelection);
-        console.log(score);
-        // console.log(typeof score);
-        if (score === "You win!") {
-            player++;
-        } else if (score === "You lose!") {
-            comp++;
-        }
-    }
-    console.log(`RESULT: `);
-    if (player > comp) {
-        console.log(`You are the winner! your points: ${player}; computer's points: ${comp} `);
-    } else if (player < comp) {
-        console.log(`you didn't win! your points: ${player}; computer's points: ${comp}`);
-    } else {
-        console.log(`draw!`);
-    }
-}
-
-
-// game();
+reset.addEventListener("click", again);

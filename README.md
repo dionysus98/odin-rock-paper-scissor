@@ -1,2 +1,2 @@
-Basic javaScript fundamentals exercise - functions, if else statement, for loop etc.
+Basic javaScript DOM MANIPULATION EXERCISE.
 Rock Paper Scissor - Odin project.
