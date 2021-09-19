@@ -7,14 +7,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissor Odin</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <!-- <script src="https://kit.fontawesome.com/48978d4d6b.js" crossorigin="anonymous"></script> -->
 </head>
 
 <body>
     <div class="title">
-        <h1>Rock-Paper-Scissor</h1>
-        <h2>ODIN PROJECT</h2>
+        <h1 class="title-header">Rock-Paper-Scissor</h1>
+        <h2 class="odin">ODIN PROJECT</h2>
     </div>
-    <script src="script.js"></script>
+
+    <div class="container">
+        <div class="player">
+            <div class="player-display">
+                <img width="250px" height="100%" class="img" id="player-img"
+                    src="https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/scissors--left.png"
+                    alt="Rock hand game">
+            </div>
+            <div class="player-selector">
+                <div class="selector">
+                    <button type="button" id="player-rock" class="btn">ROCk</button>
+                </div>
+                <div class="selector">
+                    <button type="button" id="player-paper" class="btn">PAPER</button>
+                </div>
+                <div class="selector">
+                    <button type="button" id="player-scissor" class="btn">SCISSOR</button>
+                </div>
+            </div>
+        </div>
+        <div class="computer">
+            <div class="computer-display">
+                <img width="250px" height="100%" class="img" id="computer-img"
+                    src="https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/paper--left.png"
+                    alt="paper hand game">
+            </div>
+            <div class="computer-selector">
+                <div class="selector-comp" id="computer-rps">:D</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="score-container">
+        <div class="player-score" id="player-score">
+            YOUR SCORE :
+        </div>
+        <div class="computer-score" id="computer-score">
+            COMPUTER SCORE:
+        </div>
+    </div>
+
+    <div class="winner" id="winner">?</div>
+    <!-- <img width="250px" height="100%" src="https://www3.bostonglobe.com//rw/Boston/2011-2020/WebGraphics/Metro/BostonGlobe.com/2018/05/rockpaperscissors/assets/scissors--left.png" alt=""> -->
+
 </body>
 
 </html>

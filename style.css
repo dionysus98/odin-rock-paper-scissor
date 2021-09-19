@@ -1,23 +1,98 @@
 *{
     box-sizing: border-box;
+    /* border: 1px solid red; */
+
 }
 body{
     background-color: rgb(255, 230, 0);
     overflow: hidden;
-    margin: 0 auto;
+    /* margin: 0 auto; */
    font-family: monospace;
+   overflow:auto;
 }
-.title{
-  margin-top: 20%;
-}
-h1{
+.title-header{
     font-size: 4rem;
     color: indianred;
     text-align: center;
     background-color: ivory;
+    text-shadow: 3px 3px 0.6px yellowgreen;
 }
-h2{
+.title-header:hover{
+    background-color: black;
+    color: yellow;
+    text-shadow: 3px 3px 0.6px orange;
+}
+.odin{
     font-size: 1rem;
     color: #000;
     text-align: center;
+    padding: 0 0 2em 0;
 }
+.odin:hover{
+    color: white;
+    text-shadow: 2px 2px 0.5px black;
+}
+
+.container{
+    margin: 0 auto;
+    width: 80%;
+    max-width: 800px;
+    /* border: 2px solid white; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    grid-gap: 2em;
+    /* align-items: center; */
+    padding: 1.2em 0;
+}
+.player,.computer{
+    padding: 2em 4em;
+}
+.player-display,.computer-display{
+   /* width: 30%; */
+   padding: 2em 2em;
+
+   /* border: 1px solid black; */
+}
+.player-selector{
+    display: flex;
+    justify-content: space-between;
+}
+.btn, .selector-comp{
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 1.15rem;
+    padding: 0.5rem 1rem;
+    margin: 1em 0.5em;  
+    border-radius: 1em;
+    text-align: center;
+}
+.btn:hover{
+    background-color: cornflowerblue;
+    color: black;
+    font-style: italic;
+
+}
+.btn:active{
+    transform: scale(1.15);
+}
+
+.score-container{
+    margin: 0 auto;
+    width: 80%;
+    max-width: 800px;
+    margin-top: 1.2em;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.winner{
+    margin: 0 auto;
+    text-align: center;
+    padding: 3em 2em;
+    font-size: 1.95rem;
+}
+
